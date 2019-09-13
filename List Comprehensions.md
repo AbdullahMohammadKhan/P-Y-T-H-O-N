@@ -29,3 +29,32 @@ python x = int ( raw_input()) y = int ( raw_input()) n = int ( raw_input()) ar =
 Other smaller codes may also exist, but using list comprehensions is always a good option. Code using list comprehensions:
 
 python x = int ( raw_input()) y = int ( raw_input()) n = int ( raw_input()) print [ [ i, j] for i in range( x + 1) for j in range( y + 1) if ( ( i + j ) != n )]
+
+আমাদেরকে লিস্টের ব্যাপারে কিছু ব্যাপার মাথায় রাখতে হবে।
+
+লিস্ট কম্প্রিহেনশনে অবশ্যই সবার প্রথমে এবং সবার শেষে থার্ড ব্র্যাকেট দিতে হবে।
+
+লিস্টের ভেতরে কী থাকবে সেটা বলে দেওয়ার সময় এটা মনে রাখা উচিত যে লিস্টের ভেতরের এলিমেন্টগুলো কমার মাধ্যমে একে অপরের সাথে ৃথক থাকে। সোআলাদা করে তাদের মাঝে কমা দেওয়ার চিন্তা করতে হবে না 
+
+এবার  আসি ভেতরের এলিমেন্ট গুলো কীভাবে ডিক্লেয়ার করবো, তা নিয়ে...
+
+
+ভেতরের একটি এলিমেন্ট কী হবে সেটাই জাস্ট মাথায় রাখতে হবে 
+এটা যদি জাস্ট একতা ভ্যারিয়েবল হয়, তাহলে সবার প্রথমে তা-ই লিখতে হবে, তারপরে লিখতে হবে কন্ডিশন (যদি থাকে)ঃ
+
+a=[j for i in range(3)]
+output: [0,1,2]
+
+for conditional statements:
+
+[i for i in range(10) if i%2==0]
+>> [0,2,4,6,8]
+
+
+এবার আউটপুট যদি লিস্ট হয়,তাহলে সবার প্রথমে লিস্টই জেনারালাইজ করে লিখতে হবে 
+
+[[i,j,k] for i in range(ii+1) for j in range(jj+1) for k in range(kk) if i+j+k<=s]
+>>[[0, 0, 0], [0, 1, 0], [1, 0, 0], [1, 1, 0]]
+
+
+Remember, এখানে লুপে কোলন দেওয়ার কোনও প্রয়োজন নাই। 
