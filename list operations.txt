@@ -1,4 +1,4 @@
-Consider a list (list = []). You can perform the following commands:
+Consider <h6> a list (list = []). You can perform the following commands:
 
 insert i e: Insert integer  at position .
 print: Print the list.
@@ -48,3 +48,59 @@ It also only keeps those members for which the boolean expression is True.
 >> ListOfThreeMultiples = [x for x in range(10) if x % 3 == 0] # Multiples of 3 below 10
 >> ListOfThreeMultiples
 [0, 3, 6, 9]
+
+
+ Generator Functions in Python
+
+
+# We will generate the cubes of (1-10) using a simple generator function of our own, and using a python generator which uses the Yield keyword for lazy evaluation
+
+
+def cube(n):
+	return n**3
+
+def simplifiedGenerator(n):
+	generatedResults = []
+	currentN = 1
+	while currentN <= n:
+		generatedResults.append(cube(currentN))
+		currentN += 1
+	return generatedResults
+
+
+# This is an example of Lazy evaluation- using Python's Generators
+# This code does not run when called initially
+# It will only return a "Generator" object
+# From that object we can collect the list items, one by one
+def generatorUsingYield(n):
+	currentN = 1
+	while currentN <= n:
+		yield cube(currentN)
+		currentN += 1		
+	
+
+
+# Using the Simplified Generator Code, we start with numbers x = (1..10) and for each of them, we generate x^3
+print "Using the Simplified Generator Code, we start with numbers x = (1..10) and for each of them, we generate x^3"
+# Resulting list using simplified generator
+print simplifiedGenerator(10)
+
+
+# Now we use the generator code which uses yield
+# After this, only the generator object will be returned
+print "Result using the Generator function with Yield"
+generatedValues = generatorUsingYield(10)
+
+print "We will traverse through the values from the generator object"
+# Now, we actually compute and display the values from the generator object
+print [i for i in generatedValues]
+
+
+Output from the above program:
+
+~/work/pythontutorials$ python generators.py 
+Using the Simplified Generator Code, we start with numbers x = (1..10) and for each of them, we generate x^3
+[1, 8, 27, 64, 125, 216, 343, 512, 729, 1000]
+Result using the Generator function with Yield
+We will traverse through the values from the generator object
+[1, 8, 27, 64, 125, 216, 343, 512, 729, 1000]
