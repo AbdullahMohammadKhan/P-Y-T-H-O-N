@@ -67,20 +67,22 @@ Remember, এখানে লুপে কোলন দেওয়ার কোন
 ## 1
 
 ```python
+x, y, z, n = int(input()), int(input()), int(input()), int(input())
 print ([[a,b,c] for a in range(x+1) for b in range(y+1) for c in range(z+1) if a + b + c != n ])
 ```
 ## 2
+```python
 x, y, z, n = (int(raw_input())+1 for _ in range(4))
 print [[a,b,c] for a in range(x) for b in range(y) for c in range(z) if a+b+c!=n-1]
-
+```
 ## 3
 As an alternative, to avoid multiple for loops you can use product:
-
+```python
 combinations = list(product(range(x+1), range(y+1), range(z+1)))
 print([list(a) for a in combinations if sum(a) != n])
-
+```
 ## 4 (by creating a list )
-
+```python
 listijk = []
 for i in range(x + 1):
     for j in range (y + 1):
@@ -89,13 +91,14 @@ for i in range(x + 1):
                 listijk.append([i,j,k])
 print(listijk)
 
-
+```
 ## 5
+```python
 print([[i,j,k] for i in range(x+1) for j in range(y+1) for k in range(z+1) if sum([i,j,k]) != n])
-
+```
 ## 6 naieve solution
 
-
+```python
 X = int(raw_input())
 Y = int(raw_input())
 Z = int(raw_input())
@@ -112,15 +115,17 @@ for x in Xi:
             if x + y + z != N:
                 results.append([x,y,z])
 print results
-
+```
 ## 7
+```python
 cuboid = []
 
 results = [cuboid.append([x, y, z]) for x in range(X+1) for y in range(Y+1) for z in range(Z+1) if x + y + z != N]
 
 print(cuboid)
-
+```
 ## 8
+```python
 if __name__ == '__main__':
     x = int(input())
     y = int(input())
@@ -129,3 +134,4 @@ if __name__ == '__main__':
 
     from itertools import product
     print([list(p) for p in product(range(x + 1), range(y + 1), range(z + 1)) if sum(p) != n])
+```
