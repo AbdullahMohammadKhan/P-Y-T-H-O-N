@@ -1,3 +1,14 @@
 https://www.geeksforgeeks.org/print-without-newline-python/
 
+
+for i in range(4): 
+    print(a[i], end =" ")
+
 https://stackoverflow.com/questions/3249524/print-in-one-line-dynamically
+Change print item to:
+
+print item, in Python 2.7
+print(item, end=" ") in Python 3
+If you want to print the data dynamically use following syntax:
+
+print(item, sep=' ', end='', flush=True) in Python 3
